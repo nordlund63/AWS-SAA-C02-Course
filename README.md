@@ -710,7 +710,7 @@ These two ARNs do not overlap
 Containers for users. **You cannot login to IAM groups** They have no
 credentials of their own. Used solely for management of IAM users.
 
-Groups bring two benefits
+Groups bring two benefits  w
 
 1. Effective administrative style management of users based on the team
 2. Groups can have Inline and Managed policies attached.
