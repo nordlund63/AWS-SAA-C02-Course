@@ -710,7 +710,7 @@ These two ARNs do not overlap
 Containers for users. **You cannot login to IAM groups** They have no
 credentials of their own. Used solely for management of IAM users.
 
-Groups bring two benefits  w
+Groups bring two benefits
 
 1. Effective administrative style management of users based on the team
 2. Groups can have Inline and Managed policies attached.
@@ -769,6 +769,12 @@ Roles are real identities and can be referenced within resource policies.
 
 Secure Token Service (sts:AssumeRole) this is what generates the temporary
 security credentials (TSC).
+
+Look out for 
+```bash
+sts:AssumeRole
+```
+on exams to know roles are probably involved in the answer.
 
 ### 1.3.5. When to use IAM Roles
 
