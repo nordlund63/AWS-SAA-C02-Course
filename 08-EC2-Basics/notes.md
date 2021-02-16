@@ -389,6 +389,14 @@ When to use EBS
 - Require up to 64,000 IOPS and 1,000 MiB/s per volume
 - Require up to 80,000 IOPS and 2,375 MB/s per instance
 
+- Cheap = ST1 or SC1
+- Throughput.. streaming... ST1
+- Boot... NOT ST1 or SC1
+- GP2/3 - Up to 16,000 IOPS
+- IO1/2 - Up to 64,000 IOPS (*256,000 for new IO type)
+- RAID0 + EBS up to 260,000 (io1/2-BEGP22/3)
+- More than 260,000 IOPS - INSTANCE STORE
+
 When to use Instance Store
 
 - Great value, they're included in the cost of an instance.

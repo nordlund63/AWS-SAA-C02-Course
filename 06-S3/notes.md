@@ -305,6 +305,15 @@ must be trusted by the key.
 
 ### KMS Key Demo
 
+#### Windows commands
+aws kms encrypt --key-id alias/catrobot --plaintext fileb://battleplans.txt --output text --profile iamadmin-general --query CiphertextBlob > battleplans.base64
+
+certutil -decode battleplans.base64 not_battleplans.enc
+
+aws kms decrypt --ciphertext-blob fileb://not_battleplans.enc --output text --profile iamadmin-general --query Plaintext > decreyptedplans.base64
+
+certutil -decode decreyptedplans.base64 decryptedplans.txt
+
 #### Linux/macOS commands
 
 aws kms encrypt \
@@ -534,7 +543,7 @@ If an object is not accessed for 30 days, it will move into infrequent access.
 
 This is good for objects that are unknown their access pattern.
 
-### Object Lifecycle Management
+### Object Lifecycle Configuration
 
 Intelligent-Tiering is used for objects where access is unknown.
 
@@ -554,6 +563,10 @@ An example is:
 - After one year move to Deep Archive
 
 Objects must flow downwards, they can't flow in the reverse direction.
+
+Be careful moving very small objects to new storage classes, they can cost more.
+
+A single rule cannot move 
 
 #### Expiration Actions
 
@@ -670,3 +683,13 @@ Filtering at the client side doesn't reduce this cost.
 S3 and Glacier select lets you use SQL-like statement.
 
 The filtering happens at the S3 bucket source 
+
+### S3 Events
+
+Notification generated when events occur in buckets.
+
+Can be delivered to SNS, SQS, and Lambda.
+
+Objected *created*, *deleted*, *restore* (ex. Glacier retreival), *replication*.
+
+Is an old feature, default towards EventBridge.

@@ -830,18 +830,20 @@ as well as individual payment methods.
 If you have more than 5 to 10 accounts, you would want to use an org.
 
 Take a single AWS account **standard AWS account** and create an org.
-The standard AWS account then becomes the **master account**.
+The standard AWS account then becomes the **management account**.
 The master account can invite other existing standard AWS accounts. They will
 need to approve their joining to the org.
 
 When standard AWS accounts become part of the org, they
 become **member accounts**.
-Organizations can only have one **master accounts** and zero or more
+Organizations can only have one **management accounts** and zero or more
 **member accounts**
+
+The **management account** used to be called the **master account**.
 
 #### 1.3.6.1. Organization Root
 
-This is a container that can hold AWS member accounts or the master account.
+This is a container that can hold AWS member accounts or the management account.
 It could also contain **organizational units** which can contain other
 units or member accounts.
 
@@ -859,7 +861,7 @@ Adding accounts in an organization is easy with only an email needed.
 You no longer need IAM users in each accounts. You can use IAM roles
 to change these.
 It is best to have a single AWS account only used for login.
-Some enterprises may use an AWS account while smaller ones may use the master.
+Some enterprises may use an AWS account while smaller ones may use the management.
 
 #### 1.3.6.4. Role Switching
 
